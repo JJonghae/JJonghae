@@ -1,0 +1,87 @@
+<!---shop item-list--->
+<div id="NEW">                
+                <!--/loop_new_product(12)/-->                 
+                <div class="swiper-slide loop<!--/idx/-->">
+                      <dl class="item-list">
+                        <dt class="thumb">
+                            <p id="s_price" style="display:none"> <!--/if_new_product@price_consumer(+1)/--><!--/new_product@price_consumer/--><!--/else/--><!--/new_product@price_sell/--><!--/end_if/--></p>
+                            <p id="s_dc" style="display:none"><!--/if_new_product@price_discount/--><!--/new_product@price_discount/--><!--/else/--><!--/new_product@price_sell/--><!--/end_if/--></p>
+                            <script>
+                               var no<!--/idx/-->sp = $("#NEW .loop<!--/idx/--> #s_price").text();
+                               var no<!--/idx/-->s_dc = $("#NEW .loop<!--/idx/--> #s_dc").text();     
+                               var no<!--/idx/-->sM = 100-[(no<!--/idx/-->s_dc/no<!--/idx/-->sp)*100];
+                               var no<!--/idx/-->Olim = Math.round(no<!--/idx/-->sM);
+                               var no<!--/idx/-->goInt = "<em class='num'>" + no<!--/idx/-->Olim + "</em><em class='percent'>%</em>";
+                            </script>
+                            <!--/if_new_product@is_term_discount/-->
+                                <p class="dc term"><script> $("#NEW .loop<!--/idx/--> .term").append(no<!--/idx/-->goInt);                                
+                                if(no<!--/idx/-->Olim == 0){
+                                    $("#NEW .loop<!--/idx/--> .dc.term").hide();
+                                }
+                                </script></p>
+                            <!--/else/-->
+                                <!--/if_new_product@discount_info/--><p class="dc"><!--/new_product@discount_info/--><em>%</em></p><!--/end_if/-->
+                                <!--/if_new_product@discount_percent/--><p class="dc"><!--/new_product@discount_percent/--><em>%</em></p><!--/end_if/-->
+                            <!--/end_if/-->
+                            <a href="<!--/new_product@link/-->"><img src="<!--/new_product@image_m/-->" alt="상품 섬네일" title="상품 섬네일" /></a>
+                        </dt>
+                        <dd>
+                            <ul>
+                                <li class="prd-name"><!--/notag/new_product@name/--></li>
+                                <!--/if_new_product@subname/--><li class="prd-subname"><!--/notag/new_product@subname/--></li><!--/end_if/-->
+                                
+                                <!--/if_new_product@is_soldout/-->
+                                    <li class="prd-soldout">Sold out</li>
+                                <!--/else/-->
+                                    <!--/if_new_product@price_replace/-->
+                                        <li class="prd-replace"><!--/new_product@price_replace/--></li>
+                                    <!--/else/-->
+                                        <!--/if_new_product@price_consumer(+1)/-->
+                                        <!--/if_new_product@price_discount/-->
+                                        <li class="prd-consumer"><strike><!--/number/new_product@price_consumer/--></strike></li>
+                                        <li class="prd-price"><!--/number/new_product@price_discount/--><em>원</em></li>
+
+                                        <li class="dn" id="dc01"><!--/new_product@price_consumer/--></li>
+                                        <li class="dn" id="dc02"><!--/new_product@price_discount/--></li>
+                                        <!--/else/-->
+                                        <li class="prd-consumer"><strike><!--/number/new_product@price_consumer/--></strike></li>
+                                        <li class="prd-price"><!--/number/new_product@price_sell/--><em>원</em></li>
+
+                                        <li class="dn" id="dc01"><!--/new_product@price_consumer/--></li>
+                                        <li class="dn" id="dc02"><!--/new_product@price_sell/--></li>
+
+                                        <!--/end_if/-->
+                                        <!--/else/-->
+                                        <!--/if_new_product@price_discount/-->
+                                        <li class="prd-consumer"><strike><!--/number/new_product@price_sell/--></strike></li>
+                                        <li class="prd-price"><!--/number/new_product@price_discount/--><em>원</em></li>
+                                        
+                                        <li class="dn" id="dc01"><!--/new_product@price_sell/--></li>
+                                        <li class="dn" id="dc02"><!--/new_product@price_discount/--></li>
+                                        <!--/else/-->
+                                        <li class="prd-price"><!--/number/new_product@price_sell/--><em>원</em></li>
+                                        <!--/end_if/-->
+                                        <!--/end_if/-->
+                                        
+                                        
+                                         <script>
+                                               var no<!--/idx/-->dc1 = $("#NEW .loop<!--/idx/--> #dc01").text();
+                                               var no<!--/idx/-->dc2 = $("#NEW .loop<!--/idx/--> #dc02").text();
+                                               if(no<!--/idx/-->dc1==no<!--/idx/-->dc2){
+                                                   $("#NEW .loop<!--/idx/--> .item-list dd ul li.prd-consumer").hide();
+                                               }                                                  
+                                         </script>
+
+                                   <!--/end_if/-->
+                                <!--/end_if/-->
+                            </ul>
+                        </dd>
+                    </dl>
+                  </div>
+
+                  
+                <!--/end_loop/-->
+                              
+
+              </div>
+
